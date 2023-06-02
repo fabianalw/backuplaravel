@@ -12,7 +12,7 @@
     </div>
     @endif
 
-
+    {{-- alert failed --}}
     @if(session()->has('loginError'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
       {{ session('loginError') }}
@@ -20,13 +20,14 @@
     </div>
     @endif
 
-    <div class="text-center">
-      <img class="mb-4" src="" alt="" width="72" height="57">
-      <h1 class="h3 mb-3 fw-normal">Please Login</h1>
-    </div>
-
+    
     {{-- FORM LOGIN --}}
     <main class="form-signin w-100 m-auto">
+      <div class="text-center">
+        <img class="mb-4" src="" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+      </div>
+      
         <form action="/login" method="post">
           @csrf
 
@@ -35,9 +36,9 @@
             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
             <label for="email">Email Address</label>
             @error('email')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
             @enderror
           </div>
 
