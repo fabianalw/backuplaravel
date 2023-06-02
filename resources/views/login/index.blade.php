@@ -4,21 +4,7 @@
 <div class="row justify-content-center pt-5">
   <div class="col-md-4">
 
-    {{-- alert success --}}
-    @if(session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      {{ session('success') }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
-
-    {{-- alert failed --}}
-    @if(session()->has('loginError'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      {{ session('loginError') }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
+    
 
     
     {{-- FORM LOGIN --}}
@@ -27,7 +13,21 @@
         <img class="mb-4" src="" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Please Login</h1>
       </div>
-      
+          {{-- alert success --}}
+          @if(session()->has('success'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+
+          {{-- alert failed --}}
+          @if(session()->has('loginError'))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('loginError') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
         <form action="/login" method="post">
           @csrf
 
@@ -44,12 +44,12 @@
 
           {{-- Form Password --}}
           <div class="form-floating">
-            <input type="password" name="password "class="form-control" id="password" placeholder="Password" required>
+            <input type="password" name="password"class="form-control" id="password" placeholder="Password" required>
             <label for="password">Password</label>
           </div>
 
           {{-- Tombol Login --}}
-          <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+          <button class="btn btn-primary w-100 py-2" type="submit"> Login</button>
 
         </form>
 
