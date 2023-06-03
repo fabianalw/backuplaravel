@@ -72,3 +72,6 @@ Route::get('categories', function (){
     ]);
 });
 
+
+
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
